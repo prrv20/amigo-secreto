@@ -10,6 +10,16 @@ function agregarAmigo(){
         return;
     }
     amigos.push(nombre);
-    console.log(amigos)
+    actualizarLista();
     nombreAgregado.value="";
+}
+function actualizarLista() {
+    const listaAmigos = document.getElementById('listaAmigos');
+    listaAmigos.innerHTML = "";
+
+    amigos.forEach((nombre, index) => {
+        const li = document.createElement('li');
+        li.textContent = nombre;
+        listaAmigos.appendChild(li);
+    });
 }
